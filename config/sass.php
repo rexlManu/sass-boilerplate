@@ -1,4 +1,4 @@
 <?php
 return [
-    'domain' => 'localhost',
+    'domain' => env('APP_DOMAIN', 'localhost'),
 ];
