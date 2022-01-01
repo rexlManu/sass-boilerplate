@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/login');
 Route::view('/login', 'central.auth.login')->name('auth.login');
 Route::post('/login', LoginController::class)->name('auth.login');
 Route::view('/register', 'central.auth.register')->name('auth.register');
