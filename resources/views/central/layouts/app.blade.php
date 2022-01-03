@@ -133,8 +133,10 @@
                             </div>
                             <div class="py-1" role="none">
                                 <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-                                   id="menu-item-0">Account settings</a>
+                                <a href="{{ route('settings.index') }}"
+                                   class="block px-4 py-2 text-sm {{ request()->routeIs('settings.index') ? 'bg-gray-100 text-gray-900':'text-gray-700' }}"
+                                   role="menuitem" tabindex="-1"
+                                   id="menu-item-2">Account settings</a>
                                 <a href="{{ route('applications.index') }}"
                                    class="block px-4 py-2 text-sm {{ request()->routeIs('applications.index') ? 'bg-gray-100 text-gray-900':'text-gray-700' }}"
                                    role="menuitem" tabindex="-1"

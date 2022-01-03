@@ -23,5 +23,6 @@ Route::view('/register', 'central.auth.register')->name('auth.register');
 Route::post('/register', RegistrationController::class)->name('auth.register');
 Route::post('/logout', LogoutController::class)->name('auth.logout');
 Route::view('/applications', 'central.apps.application-list')->name('applications.index');
+Route::view('/settings', 'central.settings.index')->name('settings.index');
 
 Route::view('/dashboard', 'central.dashboard')->name('dashboard');
