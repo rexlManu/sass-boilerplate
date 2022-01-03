@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Central\Auth\LoginController;
-use App\Http\Controllers\Central\Auth\RegistrationController;
+use App\Central\Controllers\Auth\LoginController;
+use App\Central\Controllers\Auth\LogoutController;
+use App\Central\Controllers\Auth\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,6 @@ Route::view('/login', 'central.auth.login')->name('auth.login');
 Route::post('/login', LoginController::class)->name('auth.login');
 Route::view('/register', 'central.auth.register')->name('auth.register');
 Route::post('/register', RegistrationController::class)->name('auth.register');
+Route::post('/logout', LogoutController::class)->name('auth.logout');
 
 Route::view('/dashboard', 'central.dashboard')->name('dashboard');

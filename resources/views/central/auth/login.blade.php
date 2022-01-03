@@ -1,4 +1,4 @@
-<x-central.app-layout>
+<x-central.auth-layout>
     <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
@@ -40,7 +40,7 @@
 
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            <input id="remember-me" name="remember-me" type="checkbox"
+                            <input id="remember-me" name="remember" type="checkbox"
                                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
                             <label for="remember-me" class="ml-2 block text-sm text-gray-900">
                                 Remember me
@@ -114,4 +114,4 @@
             </div>
         </div>
     </div>
-</x-central.app-layout>
+</x-central.auth-layout>

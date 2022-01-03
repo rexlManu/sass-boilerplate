@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Central\Auth;
+namespace App\Central\Controllers\Auth;
 
+use App\Central\Requests\Auth\RegistrationRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Central\Auth\RegistrationRequest;
-use App\Models\Tenant;
 use App\Models\User;
+use function redirect;
 
 class RegistrationController extends Controller
 {
@@ -21,12 +21,12 @@ class RegistrationController extends Controller
             'password' => \Hash::make($data[ 'password' ]),
         ]);
 
-        $tenant = new Tenant();
-        $tenant->user_id = $user->id;
-        $tenant->save();
-        $tenant->domains()->create([
-            'domain' => $data[ 'domain' ] . '.' . config('sass.domain', 'localhost'),
-        ]);
+//        $tenant = new Tenant();
+//        $tenant->user_id = $user->id;
+//        $tenant->save();
+//        $tenant->domains()->create([
+//            'domain' => $data[ 'domain' ] . '.' . config('sass.domain', 'localhost'),
+//        ]);
 
         \Auth::login($user);
 

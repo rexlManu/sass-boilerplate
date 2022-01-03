@@ -1,4 +1,4 @@
-<x-central.app-layout>
+<x-central.auth-layout>
     <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
@@ -37,24 +37,24 @@
                                      required/>
                         </div>
                     </div>
-                    <div>
-                        <x-label for="domain">
-                            Domain
-                        </x-label>
-                        <div class="mt-1 flex rounded-md shadow-sm">
+                    {{--                    <div>--}}
+                    {{--                        <x-label for="domain">--}}
+                    {{--                            Domain--}}
+                    {{--                        </x-label>--}}
+                    {{--                        <div class="mt-1 flex rounded-md shadow-sm">--}}
 
-                            <input id="domain" name="domain" type="text" :value="old('domain')"
-                                   class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-l-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300">
-                            <span
-                                class="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
-      .{{config('sass.domain', 'localhost')}}
-    </span>
-                        </div>
+                    {{--                            <input id="domain" name="domain" type="text" :value="old('domain')"--}}
+                    {{--                                   class="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-l-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300">--}}
+                    {{--                            <span--}}
+                    {{--                                class="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">--}}
+                    {{--      .{{config('sass.domain', 'localhost')}}--}}
+                    {{--    </span>--}}
+                    {{--                        </div>--}}
 
-                        <p class="text-gray-500 text-sm mt-1">
-                            You can change your domain later.
-                        </p>
-                    </div>
+                    {{--                        <p class="text-gray-500 text-sm mt-1">--}}
+                    {{--                            You can change your domain later.--}}
+                    {{--                        </p>--}}
+                    {{--                    </div>--}}
 
                     <div>
                         <x-label for="password">
@@ -146,4 +146,4 @@
             </div>
         </div>
     </div>
-</x-central.app-layout>
+</x-central.auth-layout>

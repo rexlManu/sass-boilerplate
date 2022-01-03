@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types = 1 );
 
 use App\Models\Tenant;
 use Stancl\Tenancy\Database\Models\Domain;
@@ -16,10 +16,17 @@ return [
      *
      * Only relevant if you're using the domain or subdomain identification middleware.
      */
-    'central_domains' => [
-        '127.0.0.1',
-        'localhost',
-    ],
+    'central_domains' => \Illuminate\Support\Arr::collapse(
+        [
+            [
+                '127.0.0.1',
+                'localhost',
+            ],
+            [
+                config('sass.domain')
+            ]
+        ]
+    ),
 
     /**
      * Tenancy bootstrappers are executed when tenancy is initialized.
@@ -61,16 +68,16 @@ return [
             'mysql' => Stancl\Tenancy\TenantDatabaseManagers\MySQLDatabaseManager::class,
             'pgsql' => Stancl\Tenancy\TenantDatabaseManagers\PostgreSQLDatabaseManager::class,
 
-        /**
-         * Use this database manager for MySQL to have a DB user created for each tenant database.
-         * You can customize the grants given to these users by changing the $grants property.
-         */
+            /**
+             * Use this database manager for MySQL to have a DB user created for each tenant database.
+             * You can customize the grants given to these users by changing the $grants property.
+             */
             // 'mysql' => Stancl\Tenancy\TenantDatabaseManagers\PermissionControlledMySQLDatabaseManager::class,
 
-        /**
-         * Disable the pgsql manager above, and enable the one below if you
-         * want to separate tenant DBs by schemas rather than databases.
-         */
+            /**
+             * Disable the pgsql manager above, and enable the one below if you
+             * want to separate tenant DBs by schemas rather than databases.
+             */
             // 'pgsql' => Stancl\Tenancy\TenantDatabaseManagers\PostgreSQLSchemaManager::class, // Separate by schema instead of database
         ],
     ],
@@ -149,7 +156,7 @@ return [
     'redis' => [
         'prefix_base' => 'tenant', // Each key in Redis will be prepended by this prefix_base, followed by the tenant id.
         'prefixed_connections' => [ // Redis connections whose keys are prefixed, to separate one tenant's keys from another.
-            // 'default',
+                                    // 'default',
         ],
     ],
 
@@ -183,7 +190,7 @@ return [
      */
     'migration_parameters' => [
         '--force' => true, // This needs to be true to run migrations in production.
-        '--path' => [database_path('migrations/tenant')],
+        '--path' => [ database_path('migrations/tenant') ],
         '--realpath' => true,
     ],
 

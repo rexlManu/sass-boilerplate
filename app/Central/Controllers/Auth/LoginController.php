@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Central\Auth;
+namespace App\Central\Controllers\Auth;
 
+use App\Central\Requests\Auth\LoginRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Central\Auth\LoginRequest;
-use Illuminate\Http\Request;
+use function redirect;
 
 class LoginController extends Controller
 {

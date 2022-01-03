@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Central\Auth;
+namespace App\Central\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class RegistrationRequest extends FormRequest
 {
@@ -28,9 +27,8 @@ class RegistrationRequest extends FormRequest
 
             'name' => [ 'required', 'string', 'max:255' ],
             'email' => [ 'required', 'string', 'email', 'max:255', 'unique:users' ],
-            'domain' => [ 'required', 'alpha', 'max:30', 'min:3', Rule::unique('domains', 'domain') ],
+            // 'domain' => [ 'required', 'alpha', 'max:30', 'min:3', Rule::unique('domains', 'domain') ],
             'password' => [ 'required', 'confirmed' ],
-
         ];
     }
 }
