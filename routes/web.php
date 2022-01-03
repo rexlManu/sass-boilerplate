@@ -17,12 +17,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', '/login');
-Route::view('/login', 'central.auth.login')->name('auth.login');
-Route::post('/login', LoginController::class)->name('auth.login');
-Route::view('/register', 'central.auth.register')->name('auth.register');
-Route::post('/register', RegistrationController::class)->name('auth.register');
-Route::post('/logout', LogoutController::class)->name('auth.logout');
-Route::view('/applications', 'central.apps.application-list')->name('applications.index');
-Route::view('/settings', 'central.settings.index')->name('settings.index');
+
+
+Route::middleware('guest.central')->group(function () {
+    Route::view('/login', 'central.auth.login')->name('auth.login');
+    Route::post('/login', LoginController::class)->name('auth.login');
+    Route::view('/register', 'central.auth.register')->name('auth.register');
+    Route::post('/register', RegistrationController::class)->name('auth.register');
+});
+
+Route::middleware('auth.central')->group(function () {
+    Route::post('/logout', LogoutController::class)->name('auth.logout');
+    Route::view('/applications', 'central.apps.application-list')->name('applications.index');
+    Route::view('/settings', 'central.settings.index')->name('settings.index');
+});
 
 Route::view('/dashboard', 'central.dashboard')->name('dashboard');
