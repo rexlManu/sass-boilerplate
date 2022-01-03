@@ -75,11 +75,13 @@
                     </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach(auth()->user()->tenants()->get() as $tenant)
+                    @foreach(auth()->user()->tenants()->with('domains')->get() as $tenant)
                         <tr class="bg-white">
                             <td class="max-w-0 w-full px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                 <div class="flex">
-                                    <a href="#" class="group inline-flex space-x-2 truncate text-sm">
+                                    <a href="{{ url(request()->getScheme()."://{$tenant->primaryDomain()->domain}", [], true) }}"
+                                       target="_blank"
+                                       class="group inline-flex space-x-2 truncate text-sm">
                                         <!-- Heroicon name: solid/cash -->
                                         <svg class="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500"
                                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -90,7 +92,7 @@
 
                                         </svg>
                                         <p class="text-gray-500 truncate group-hover:text-gray-900">
-                                            {{ $tenant->domains()->first()->domain }}
+                                            {{ $tenant->primaryDomain()->domain }}
                                         </p>
                                     </a>
                                 </div>

@@ -21,4 +21,9 @@ class Tenant extends BaseTenant implements TenantWithDatabase
             'user_id',
         ];
     }
+
+    public function primaryDomain()
+    {
+        return $this->domains()->first();
+    }
 }
